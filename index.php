@@ -10,9 +10,10 @@ if(array_key_exists('studentID', $_SESSION)){
     $sql = "SELECT * FROM Students WHERE studentID = '".$_SESSION['studentID']."'";
     $result = $COMMON->executeQuery($sql, $_SERVER["index.php"]);
     $student = mysql_fetch_row($result);
-    if($student[6] == NULL){
-     echo "You do not have an appointment";
+    if($student[6] == NULL)
+    {
         //add appointment button, onclick -> SelectAppointment.php
+        header('Location: selectAppt.php');
     }
     else{
         //display current appointment info
@@ -25,10 +26,11 @@ if(array_key_exists('studentID', $_SESSION)){
         if(result !== false){
          $advisor = mysql_fetch_row($result);
             echo "<br>Advisor: ".$advisor[1]." ".$advisor[2];
-            echo "<br>Room: ".$advisor[5];
+            echo "<br>Advisor's Room: ".$advisor[4];
+            echo "<br>Advisor's Number:".$advisor[5];
         }
         
-        include 'includes/studentButtons.php';
+        //include 'includes/studentButtons.php';
         //cancel appoinment button, are you sure?
         //onclick -> delete appt, refresh index.php
     }
@@ -42,7 +44,7 @@ else if(array_key_exists('student', $_POST)){
     }
 }
 else {
-    include 'StudentIDForm.php';
+    include 'studentIDForm.php';
 }
 
 include_once 'includes/overallfooter.php';
