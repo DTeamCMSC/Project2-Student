@@ -1,8 +1,10 @@
 <?php
+
 include_once 'init.php';
 include_once 'includes/overallheader.php';
 include 'includes/widgets/logout.php';
-if(array_key_exists('studentID', $_SESSION)){
+if(array_key_exists('studentID', $_SESSION))
+{
   $studentID = $_SESSION['studentID'];
 ?>
 <h2>Are you sure you would like to drop your Appointment</h2>
@@ -10,13 +12,7 @@ if(array_key_exists('studentID', $_SESSION)){
 include_once 'accept.php';
     if($_Post["Yes"])
     {
-    
     echo "yes";
-    
-    }
-    else
-    {
-    header(Location ='index.php');
     }
 /*
 Search appointments for a student ID

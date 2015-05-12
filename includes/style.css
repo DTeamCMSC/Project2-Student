@@ -1,8 +1,22 @@
-#accept
-{
-box-sizing: border-box;
-background-size: auto;
+#transparentTable{
+    padding: 20px;
+    padding-left: 30px;
+    border: 0px;
+    border-collapse: collapse;
+    background-color: #9CC8DC;
 }
+
+#transparentTable td {
+    border: 0px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+#accept{
+    box-sizing: border-box;
+    background-size: auto;
+}
+
 #error, #printDiv{
     padding-top: 20px;
     padding-left: 20px;
@@ -10,7 +24,7 @@ background-size: auto;
 
 #list, #selectGroup, #addWeekForm, p2 {
     padding-left: 35px;
-    padding-top: 0px;
+    padding: 20px;
 }
 
 #submit, #printDetail {

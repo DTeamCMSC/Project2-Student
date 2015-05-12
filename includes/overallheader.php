@@ -14,7 +14,7 @@
 <a href="index.php">Home</a>
         </li>
         <li>
-<a href=http://advising.coeit.umbc.edu/advising-information target="_blank">Advisors Availiable </a>
+<a href=http://advising.coeit.umbc.edu/advising-information target="_blank">Need Help?</a>
         </li>
 <?php
     

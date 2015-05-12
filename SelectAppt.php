@@ -10,16 +10,11 @@ if(array_key_exists('studentID', $_SESSION))
         <br><br><br>
         <h1>You do not have an appointment</h1>
         <h1>Please select an appointment below</h1>
-      
-
+    
 <?php
-            include_once 'includes/selectWeek.php';
-            
+    }
     
-    
-    
-    
-    
-    
-            include_once 'includes/overallfooter.php';
+
+include_once 'includes/selectWeek.php';
+include_once 'includes/overallfooter.php';
 ?>
