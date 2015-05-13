@@ -16,4 +16,20 @@ function name_from_studentID($studentID)
     
     return $name;
 }
+
+function major_from_studentID($studentID){
+    global $debug;
+    global $COMMON;
+    $major = "";
+    
+    $sql = "SELECT * FROM Students WHERE studentID = '".$studentID."'";
+    $record = $COMMON->executeQuery($sql, $_SERVER["Student.php"]);
+    if(mysql_num_rows($record) == 1)
+    {
+        $major = mysql_result($record, 0, 'major');
+    }
+    return $major;
+}
+
+
 ?>

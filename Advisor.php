@@ -1,6 +1,6 @@
 <?php
 //counts number of advisors stored in database
-function count_Advisors(){
+function count_advisors(){
     global $COMMON;
     $sql = "SELECT * FROM Advisors";
     $record = $COMMON->executeQuery($sql, $_SERVER["Advisor.php"]);  
@@ -13,8 +13,8 @@ function advisor_array(){
     $sql = "SELECT * FROM Advisors";
     $record = $COMMON->executeQuery($sql, $_SERVER["Advisor.php"]);
     if(mysql_num_rows($record) >= 1){
-        for($i=0; $i<mysql_num_rows($record);$i++){
-             $arr = mysql_result($record, $i, 'advisorID');
+        for($i=0; $i<mysql_num_rows($record); $i++){
+             array_push($arr, mysql_result($record, $i, 'advisorID'));
         }
     }
     return $arr;

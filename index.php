@@ -16,19 +16,24 @@ if(array_key_exists('studentID', $_SESSION)){
         header('Location: selectAppt.php');
     }
     else{
+        echo "<div id=\"appt\">";
+        echo "<table id=\"transparentTable\">";
         //display current appointment info
-        echo "Type: ".$student[8]." Advising";
-        echo "<br>Date: ".$student[5];
-        echo "<br>Time: ".$student[6];
+        echo "<tr><td>Type:</td><td>".$student[8]." Advising</td></tr>";
+        echo "<tr><td>Date:</td><td>".short_string($student[5])."</td></tr>";
+        echo "<tr><td>Time:</td><td>".display_time($student[6])."</td></tr>";
         //get advisor info from ID
         $sql = "SELECT * FROM Advisors WHERE advisorID = '".$student[7]."'";
         $result = $COMMON->executeQuery($sql, $_SERVER["index.php"]);
         if(result !== false){
          $advisor = mysql_fetch_row($result);
-            echo "<br>Advisor: ".$advisor[1]." ".$advisor[2];
-            echo "<br>Advisor's Room: ".$advisor[4];
-            echo "<br>Advisor's Number:".$advisor[5];
+            echo "<tr><td>Advisor:</td><td>".$advisor[1]." ".$advisor[2]."</td></tr>";
+            echo "<tr><td>Advisor's Room:</td><td>".$advisor[4]."</td></tr>";
+            echo "<tr><td>Advisor's Email:</td><td>".$advisor[3]."</td></tr>";
+            echo "<tr><td>Advisor's Number:</td><td>".$advisor[5]."</td></tr>";
         }
+        echo "</table></div>";
+        include 'includes/printButton.php';
         
         //include 'includes/studentButtons.php';
         //cancel appoinment button, are you sure?

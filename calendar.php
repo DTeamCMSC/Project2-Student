@@ -52,6 +52,7 @@ class Calendar {
     }
   }*/
 }//end of Calendar class
+
 function short_string($date) {
   $dateArray = explode( "-", $date, 3);
     $month = $dateArray[1];
@@ -64,6 +65,7 @@ function short_string($date) {
     }
   return $month."/".$day;
 }
+
 function date_to_string($date){
   global $months;
   $dateArray = explode( "-", $date, 3);
@@ -75,6 +77,7 @@ function day_of_week($date){
   $dateArray = explode( "-", $date, 3);
   return jddayofweek(cal_to_jd(CAL_GREGORIAN, date($dateArray[1]), date($dateArray[2]),             date($dateArray[0])), 1);
 }
+
 function db_time($time){
    // if(strpos($time, " am")){
        chop($time, " am");
@@ -92,6 +95,7 @@ function db_time($time){
     }
     return $time;
 }
+
 function display_time($time){
     $time = date('h:i', strtotime($time));
     $value = intval(substr($time, 0, 2));

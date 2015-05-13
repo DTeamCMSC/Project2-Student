@@ -1,4 +1,15 @@
-#transparentTable{
+#errorImg {
+    width:18px;
+    height:20px;
+    padding-right:5px;
+    vertical-align: middle;
+}
+
+#appt {
+  padding-left: 20px;   
+}
+
+#transparentTable, #outerTable{
     padding: 20px;
     padding-left: 30px;
     border: 0px;
@@ -10,6 +21,14 @@
     border: 0px;
     text-align: left;
     padding-left: 20px;
+    padding: 5px;
+}
+
+#outerTable td {
+    border: 0px;
+    text-align: left;
+    padding-left: 20px;
+    float: left;
 }
 
 #accept{
@@ -20,6 +39,7 @@
 #error, #printDiv{
     padding-top: 20px;
     padding-left: 20px;
+    vertical-align: bottom;
 }
 
 #list, #selectGroup, #addWeekForm, p2 {

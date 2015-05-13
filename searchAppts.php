@@ -20,39 +20,69 @@ function toggle(source, name) {
 </script>
 <?php
   if(count($_POST) > 1){
-      
-      //form to select day(s) of week
-    echo "<form action=\"selectAppt.php\" method=\"post\">";
-    echo "<br><div id=\"selectTitle\">Select days:</div>";
+      //form to select search criteria
+?>
+    <form action="selectAppt.php" method="post"><br>
+    <table id="outerTable"><tr>
+
+    <td><div id="selectTitle">Select dates:</div>
+    <div id="selectGroup"><table id="transparentTable">
+<?php
     $week = $CALENDAR->weeks[(int)$_POST['week']];
-    echo "<div id=\"selectGroup\"><table id=\"transparentTable\">";
     for($i = 0; $i < 5; $i++){
       $date = $week->dates[$i];
-      echo "<tr><td><input type=\"checkbox\" name=\"date[]\" value=\"".$date."\">";
+      echo "<tr><td><input type=\"checkbox\" name=\"dates[]\" value=\"".$date."\" checked>";
       echo date_to_string($date)."</td>";
       echo "</tr>";
     }
-      echo "<tr><td><input type=\"checkbox\" onClick=\"toggle(this, 'date[]')\"/>Select All</td></tr></table></div>";
-
-//laaaaaaaaaaaaaaaaaa still editing
-      //select advisors
-      $advisorArr = advisor_array();
-    echo "<br><div id=\"selectTitle\">Select days:</div>";
-    echo "<div id=\"selectGroup\"><table id=\"transparentTable\">";
-    for(  ){
-      echo "<tr><td><input type=\"checkbox\" name=\"date[]\" value=\""."\">";
-      echo "</td>";
+        ?><tr><td><input type="checkbox" onClick="toggle(this, 'dates[]')" checked/><b>Select All</b></td></tr></table></div></td>
+      
+    <td><div id="selectTitle">Select times:</div>
+    <div id="selectGroup"><table id="transparentTable">
+<?php
+    foreach($apptTimes as $time){
+      echo "<tr><td><input type=\"checkbox\" name=\"times[]\" value=\"".db_time($time)."\" checked>";
+      echo display_time($time)."</td>";
       echo "</tr>";
     }
-      echo "<tr><td><input type=\"checkbox\" onClick=\"toggle(this, 'date[]')\"/>Select All</td></tr></table></div>";
+?>
+        <tr><td><input type="checkbox" onClick="toggle(this, 'times[]')" checked/><b>Select All</b></td></tr></table></div></td>
       
-      //submit
-    echo "<div id=\"submit\"><input type=\"submit\" name=\"selectDay\">";
-    echo "</div></form>";
-  }
+    <td><div id="selectTitle">Appointment Type:</div>
+    <div id="selectGroup"><table id="transparentTable">
+    <tr><td><input type="radio" name="type" value="indiv" required>Individual
+    </td></tr>
+    <tr><td><input type="radio" name="type" value="group" required>Group
+    </td></tr>
+    </table></div>
+        
+    <br><div id="selectTitle">Select Advisor (individual only):</div>
+    <div id="selectGroup">
+    <table id="transparentTable">
+<?php
+     //select advisors
+    $advisorArr = advisor_array();
+    foreach($advisorArr as $adv){
+      echo "<tr><td><input type=\"checkbox\" name=\"advisors[]\" value=\"".$adv;
+        echo "\" checked>".name_from_advisorID($adv);
+      echo "</td></tr>";
+    }
+?>
+    <tr><td>
+        <input type="checkbox" onClick="toggle(this, 'advisors[]')" checked/><b>Select All</b></td></tr>
+    </table></div>
+    </td>
+
+    <td>
+        <div id="submit"><input type="submit" name="search" value="Search">
+        </div>
+    </td>
+    </tr></table></form>
+<?php
+}
 }
 else {
-    echo "<div id=\"error\"><img src=\"includes/error.png\" id=\"errorImg\">";
+    echo "<br><div id=\"error\"><img src=\"includes/error.png\" id=\"errorImg\">";
     echo "You are not logged in.</div>";
 }
 
