@@ -1,0 +1,6 @@
+Some hot fixes are needed
+-looping through group data
+-more efficient logic
+-SMS/Email service
+-workable code at http://userpages.umbc.edu/~dadedir1/CMSC/Project2/
+-Logan/Sarah it's been a pleasure
