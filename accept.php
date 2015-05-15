@@ -1,7 +1,8 @@
-<div id="accept">
-    <form name="printForm" action="index.php" method="post">
-        <input type="button" name="Yes" value="Yes">
-        <input type="button" name="No" value="No ">
-    </form>
-</div>
 
+    <form name="printForm" action="cancelAppt.php" method="post">
+        <select name="cancel">
+        <option value="Yes">Yes</option>
+        <option value="No" selected>No</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>

@@ -1,7 +1,6 @@
 <?php
 include_once 'init.php';
 include_once 'includes/overallheader.php';
-include 'includes/widgets/logout.php';
 if(array_key_exists('studentID', $_SESSION))
 {
   $advisorID = $_SESSION['studentID'];
@@ -18,6 +17,23 @@ function toggle(source, name) {
   }
 }
 </script>
+<SCRIPT LANGUAGE="JavaScript">
+function codename() {
+
+if(document.formname.checkboxname.checked)
+{
+document.formname.textname.disabled=false;
+}
+
+else
+{
+document.formname.textname.disabled=true;
+}
+}
+
+//-->
+</SCRIPT>
+
 <?php
   if(count($_POST) > 1){
       //form to select search criteria
@@ -37,25 +53,13 @@ function toggle(source, name) {
     }
         ?><tr><td><input type="checkbox" onClick="toggle(this, 'dates[]')" checked/><b>Select All</b></td></tr></table></div></td>
       
-    <td><div id="selectTitle">Select times:</div>
-    <div id="selectGroup"><table id="transparentTable">
-<?php
-    foreach($apptTimes as $time){
-      echo "<tr><td><input type=\"checkbox\" name=\"times[]\" value=\"".db_time($time)."\" checked>";
-      echo display_time($time)."</td>";
-      echo "</tr>";
-    }
-?>
-        <tr><td><input type="checkbox" onClick="toggle(this, 'times[]')" checked/><b>Select All</b></td></tr></table></div></td>
-      
     <td><div id="selectTitle">Appointment Type:</div>
     <div id="selectGroup"><table id="transparentTable">
     <tr><td><input type="radio" name="type" value="indiv" required>Individual
     </td></tr>
     <tr><td><input type="radio" name="type" value="group" required>Group
     </td></tr>
-    </table></div>
-        
+    </table></div>    
     <br><div id="selectTitle">Select Advisor (individual only):</div>
     <div id="selectGroup">
     <table id="transparentTable">

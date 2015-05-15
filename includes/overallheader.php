@@ -21,6 +21,8 @@
     if(array_key_exists('studentID', $_SESSION))
         {
             include 'includes/studentMenu.php';
+            echo"</ul>";
+            include_once 'includes/widgets/logout.php';
         }
 ?>
     </ul>

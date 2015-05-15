@@ -3,7 +3,6 @@ include_once 'init.php';
 include_once 'includes/overallheader.php';
 
 if(array_key_exists('studentID', $_SESSION)){
-    include 'includes/widgets/logout.php';
     echo "<h2>Your Appointment</h2>";
     
     //display current appointment if it exists
@@ -13,7 +12,11 @@ if(array_key_exists('studentID', $_SESSION)){
     if($student[6] == NULL)
     {
         //add appointment button, onclick -> SelectAppointment.php
-        header('Location: selectAppt.php');
+        echo "<div id=\"appt\">You do not have an appointment</div>";
+        echo "<div id=\"appt\"><br>";
+        echo "<input type=\"button\" value=\"Make Appointment\" onclick=\"parent.location='searchAppts.php'\">";
+        echo "</div>";
+    
     }
     else{
         echo "<div id=\"appt\">";

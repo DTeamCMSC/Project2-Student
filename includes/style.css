@@ -113,7 +113,7 @@ body{
 }
 
 nav{
-    color: white;
+    color: black;
     border-bottom: 1px solid #1F1F1F;
     float: center;
 }
@@ -121,7 +121,7 @@ nav{
 aside {
     float: right;
     padding-left: 15px;
-    width: 150px;
+    width: 250px;
     border-left: 1px solid #1F1F1F;
 }
 
@@ -162,7 +162,7 @@ a:hover, a:active {
 ul {
     list-style-type: none;
     padding-left: 0px;
-    padding-top: 0px;
+    padding-bottom: 10px;
 
 }
 
@@ -216,6 +216,7 @@ table {
 }
 
 td, th {
+    
     border: 1px solid darkgrey;
     padding: 3px;
     text-align: center;
